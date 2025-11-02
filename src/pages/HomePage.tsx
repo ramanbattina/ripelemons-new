@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { supabase, ProductWithDetails } from '../lib/supabase'
-import { Search, DollarSign, TrendingUp, Filter, X } from 'lucide-react'
+import { Search, Filter, X } from 'lucide-react'
 import Navigation from '../components/Navigation'
 import ProductCard from '../components/ProductCard'
 

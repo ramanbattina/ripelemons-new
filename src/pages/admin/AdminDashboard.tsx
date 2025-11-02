@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Package, Users, FileText, BarChart, CreditCard } from 'lucide-react'
+import { Package, Users, FileText, CreditCard } from 'lucide-react'
 
 export default function AdminDashboard() {
   return (

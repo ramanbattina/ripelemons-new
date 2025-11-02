@@ -90,12 +90,13 @@ export function isProcessorConfigured(processor: string, config: Record<string, 
  * Note: This function is for server-side use only (edge functions)
  */
 export function getEnvVar(processor: string, field: string, defaultValue?: string): string {
-  const envKey = `${processor.toUpperCase()}_${field.toUpperCase()}`
   // This function should only be used in edge functions, not in browser
+  // envKey would be used server-side to read environment variables
   if (typeof window !== 'undefined') {
     console.warn('getEnvVar should not be called in browser context')
     return defaultValue || ''
   }
+  // In edge functions, you would use: process.env[`${processor.toUpperCase()}_${field.toUpperCase()}`]
   return defaultValue || ''
 }
 
@@ -117,7 +118,7 @@ export function getProcessorEnvVars(processor: string): Record<string, string> {
 /**
  * Check if we should use test mode
  */
-export function shouldUseTestMode(processor: string, config?: Record<string, any>): boolean {
+export function shouldUseTestMode(_processor: string, config?: Record<string, any>): boolean {
   // Check if test mode is explicitly set in config
   if (config && typeof config.test_mode === 'boolean') {
     return config.test_mode

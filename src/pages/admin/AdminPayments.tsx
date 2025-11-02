@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import Navigation from '../../components/Navigation'
 import { Settings, Eye, EyeOff, Check, X, CreditCard, Save, DollarSign, Rocket } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
 

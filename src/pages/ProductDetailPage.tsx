@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { supabase, ProductWithDetails } from '../lib/supabase'
 import Navigation from '../components/Navigation'
-import { DollarSign, TrendingUp, ExternalLink, Award, User, Calendar, ArrowLeft, LineChart } from 'lucide-react'
+import { DollarSign, TrendingUp, ExternalLink, Award, User, Calendar, ArrowLeft } from 'lucide-react'
 
 export default function ProductDetailPage() {
   const { id } = useParams<{ id: string }>()

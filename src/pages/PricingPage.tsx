@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Navigation from '../components/Navigation'
-import { Check, X, Zap, Star, Crown, CreditCard, Loader, Smartphone, DollarSign, Rocket } from 'lucide-react'
+import { Check, X, Zap, Star, Crown, CreditCard, Loader, DollarSign, Rocket } from 'lucide-react'
 
 export default function PricingPage() {
-  const [showPaymentNote, setShowPaymentNote] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
   const [currentProcessor, setCurrentProcessor] = useState<string | null>(null)
   const [paymentProcessor, setPaymentProcessor] = useState<string>('stripe')
@@ -102,7 +101,8 @@ export default function PricingPage() {
       }
     } catch (error) {
       console.error('Payment error:', error)
-      alert(`Payment failed: ${error.message}`)
+      const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred'
+      alert(`Payment failed: ${errorMessage}`)
     } finally {
       setIsProcessing(false)
       setCurrentProcessor(null)
