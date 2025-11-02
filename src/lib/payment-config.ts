@@ -89,14 +89,13 @@ export function isProcessorConfigured(processor: string, config: Record<string, 
  * Get environment variable for payment processor
  * Note: This function is for server-side use only (edge functions)
  */
-export function getEnvVar(processor: string, field: string, defaultValue?: string): string {
+export function getEnvVar(_processor: string, _field: string, defaultValue?: string): string {
   // This function should only be used in edge functions, not in browser
-  // envKey would be used server-side to read environment variables
+  // In edge functions, you would use: process.env[`${_processor.toUpperCase()}_${_field.toUpperCase()}`]
   if (typeof window !== 'undefined') {
     console.warn('getEnvVar should not be called in browser context')
     return defaultValue || ''
   }
-  // In edge functions, you would use: process.env[`${processor.toUpperCase()}_${field.toUpperCase()}`]
   return defaultValue || ''
 }
 
